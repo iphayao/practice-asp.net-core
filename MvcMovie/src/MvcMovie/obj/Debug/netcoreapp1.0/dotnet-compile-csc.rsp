@@ -240,6 +240,7 @@
 "C:\Users\Phayao\Source\Repos\practice-asp.net-core\MvcMovie\src\MvcMovie\Data\Migrations\ApplicationDbContextModelSnapshot.cs"
 "C:\Users\Phayao\Source\Repos\practice-asp.net-core\MvcMovie\src\MvcMovie\Models\ApplicationUser.cs"
 "C:\Users\Phayao\Source\Repos\practice-asp.net-core\MvcMovie\src\MvcMovie\Models\Movie.cs"
+"C:\Users\Phayao\Source\Repos\practice-asp.net-core\MvcMovie\src\MvcMovie\Models\SeedData.cs"
 "C:\Users\Phayao\Source\Repos\practice-asp.net-core\MvcMovie\src\MvcMovie\Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs"
 "C:\Users\Phayao\Source\Repos\practice-asp.net-core\MvcMovie\src\MvcMovie\Models\AccountViewModels\ForgotPasswordViewModel.cs"
 "C:\Users\Phayao\Source\Repos\practice-asp.net-core\MvcMovie\src\MvcMovie\Models\AccountViewModels\LoginViewModel.cs"
