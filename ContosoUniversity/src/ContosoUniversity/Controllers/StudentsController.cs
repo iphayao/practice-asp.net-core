@@ -96,37 +96,61 @@ namespace ContosoUniversity.Controllers
         // POST: Students/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,EnrollmentData,FirstName,LastName")] Student student)
+        public async Task<IActionResult> EditPost(int? id)
         {
-            if (id != student.ID)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            var student = await _context.Students.SingleOrDefaultAsync(s => s.ID == id);
+            if (await TryUpdateModelAsync<Student>(student, "", s => s.FirstName, s => s.LastName, s => s.EnrollmentData))
             {
                 try
                 {
-                    _context.Update(student);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DbUpdateException)
                 {
-                    if (!StudentExists(student.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try agian, and if the problem persists " +
+                        "see your system administrator.");
                 }
-                return RedirectToAction("Index");
+
             }
             return View(student);
         }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Edit(int id, [Bind("ID,EnrollmentData,FirstName,LastName")] Student student)
+        //{
+        //    if (id != student.ID)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _context.Update(student);
+        //            await _context.SaveChangesAsync();
+        //            return RedirectToAction("Index");
+        //        }
+        //        catch (DbUpdateException)
+        //        {
+        //            ModelState.AddModelError("", "Unable to save changes. " +
+        //                "Try agian, and if the problem persists " +
+        //                "see your system administrator.");
+        //        }
+
+        //    }
+        //    return View(student);
+        //}
 
         // GET: Students/Delete/5
         public async Task<IActionResult> Delete(int? id)
