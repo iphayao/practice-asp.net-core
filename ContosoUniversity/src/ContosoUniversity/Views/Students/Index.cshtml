@@ -13,13 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.EnrollmentData)
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm">@Html.DisplayNameFor(model => model.LastName)</a> 
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.DateSortParm">@Html.DisplayNameFor(model => model.EnrollmentData)</a>
             </th>
             <th></th>
         </tr>
@@ -28,13 +28,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.EnrollmentData)
+                @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(modelItem => item.EnrollmentData)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
