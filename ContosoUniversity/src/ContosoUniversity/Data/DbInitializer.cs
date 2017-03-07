@@ -24,21 +24,21 @@ namespace ContosoUniversity.Data
             var students = new Student[]
             {
                 new Student {FirstName = "Carson", LastName="Alexander",
-                    EnrollmentData =DateTime.Parse("2005-09-01") },
+                    EnrollmentDate =DateTime.Parse("2005-09-01") },
                 new Student {FirstName = "Meredith", LastName="Alonso",
-                    EnrollmentData =DateTime.Parse("2002-09-01") },
+                    EnrollmentDate =DateTime.Parse("2002-09-01") },
                 new Student {FirstName = "Arturo", LastName="Anand",
-                    EnrollmentData =DateTime.Parse("2003-09-01") },
+                    EnrollmentDate =DateTime.Parse("2003-09-01") },
                 new Student {FirstName = "Gytis", LastName="Barzdukas",
-                    EnrollmentData =DateTime.Parse("2002-09-01") },
+                    EnrollmentDate =DateTime.Parse("2002-09-01") },
                 new Student {FirstName = "Yan", LastName="Li",
-                    EnrollmentData =DateTime.Parse("2002-09-01") },
+                    EnrollmentDate =DateTime.Parse("2002-09-01") },
                 new Student {FirstName = "Peggy", LastName="Justice",
-                    EnrollmentData =DateTime.Parse("2001-09-01") },
+                    EnrollmentDate =DateTime.Parse("2001-09-01") },
                 new Student {FirstName = "Laura", LastName="Norman",
-                    EnrollmentData =DateTime.Parse("2003-09-01") },
+                    EnrollmentDate =DateTime.Parse("2003-09-01") },
                 new Student {FirstName = "Nino", LastName="Olivetto",
-                    EnrollmentData =DateTime.Parse("2005-09-01") },
+                    EnrollmentDate =DateTime.Parse("2005-09-01") },
             };
 
             foreach(Student s in students)

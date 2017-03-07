@@ -7,27 +7,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContosoUniversity.Models
 {
-    public class Student
+    public class Student : Person
     {
-        public int ID { get; set; }
-        [Required]
-        [StringLength(50)]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-        [Required]
-        [StringLength(50, ErrorMessage = "First name connot be longer that 50 charecters.")]
-        [Column("FirstName")]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Enrollment Date")]
-        public DateTime EnrollmentData { get; set; }
-        [Display(Name = "Full Name")]
-        public string FullName
-        {
-            get { return LastName + ", " + FirstName; }
-        }
+        public DateTime EnrollmentDate { get; set; }
+
         public ICollection<Enrollment> Enrollments { get; set; }
     }
 }
