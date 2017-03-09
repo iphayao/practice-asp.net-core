@@ -9,10 +9,13 @@ namespace TodoApi.Models
 {
     public class TodoItem
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Key { get; set; }
+        [Required]
+        public string ID { get; set; }
+        [Required]
         public string Name { get; set; }
-        public bool IsComplete { get; set; }
+        [Required]
+        public string Notes { get; set; }
+
+        public bool Done { get; set; }
     }
 }
