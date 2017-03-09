@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ContosoUniversity.Data;
 using ContosoUniversity.Models;
 
 namespace ContosoUniversity.Controllers
@@ -162,6 +163,23 @@ namespace ContosoUniversity.Controllers
         private bool CourseExists(int id)
         {
             return _context.Courses.Any(e => e.CourseID == id);
+        }
+
+        public IActionResult UpdateCourseCredits()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateCourseCredits(int? multiplier)
+        {
+            if(multiplier != null)
+            {
+                ViewData["RowsAffected"] = await _context.Database.ExecuteSqlCommandAsync(
+                                           "UPDATE Course SET Credits = Credits * {0}",
+                                           parameters: multiplier);
+            }
+            return View();
         }
     }
 }
